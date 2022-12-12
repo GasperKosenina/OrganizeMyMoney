@@ -1,12 +1,77 @@
 package com.organizemymoney.ris.Models;
 
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class Uporabnik {
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false)
+	private Long id;
 	private String ime;
 	private String priimek;
 	private String telefonska_stevilka;
 	private String email;
+
+	@ElementCollection
+	@OneToMany
+	@JoinTable(
+	name = "uporabnik_strosek",
+	joinColumns = @JoinColumn(name = "uporabnik_id_uporabnika"),
+	inverseJoinColumns = @JoinColumn(name = "strosek_id_stroska"))
+	private List<Strosek> uporabikoviStroski = new ArrayList<>();
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getIme() {
+		return ime;
+	}
+
+	public String getPriimek() {
+		return priimek;
+	}
+
+	public String getTelefonska_stevilka() {
+		return telefonska_stevilka;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public List<Strosek> getUporabikoviStroski() {
+		return uporabikoviStroski;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setIme(String ime) {
+		this.ime = ime;
+	}
+
+	public void setPriimek(String priimek) {
+		this.priimek = priimek;
+	}
+
+	public void setTelefonska_stevilka(String telefonska_stevilka) {
+		this.telefonska_stevilka = telefonska_stevilka;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setUporabikoviStroski(List<Strosek> uporabikoviStroski) {
+		this.uporabikoviStroski = uporabikoviStroski;
+	}
 
 	/**
 	 * 
