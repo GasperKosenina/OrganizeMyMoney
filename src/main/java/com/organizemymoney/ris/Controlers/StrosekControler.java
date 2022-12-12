@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 public class StrosekControler {
@@ -47,6 +48,25 @@ public class StrosekControler {
     @GetMapping("/getStrPoParam")
     public Iterable<Strosek> poParam(){
         return StrosekDao.vrniStroskePoZnesku();
+    }
+
+    @GetMapping("/getStr/{id}")
+    public Optional<Strosek> getStrosekById(@PathVariable(value = "id") Long id){
+        return StrosekDao.findById(id);
+    }
+
+    @DeleteMapping("/izbrisiStr/{id}")
+    public Strosek izbrisStroska(@PathVariable(value = "id") Long id){
+        ArrayList<Strosek> stroski = (ArrayList<Strosek>) StrosekDao.findAll();
+        for(int i = 0; i< stroski.size(); i++){
+            Strosek strosek = stroski.get(i);
+            if(strosek.getId() == id){
+                StrosekDao.delete(strosek);
+                return strosek;
+            }
+        }
+        return null;
+
     }
 
 }
