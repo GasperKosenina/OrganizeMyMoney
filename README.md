@@ -1,2 +1,2 @@
 # gapoking
-oko
+okol
