@@ -13,7 +13,6 @@ public class Strosek {
 	private String opomba;
 
 	/**
-	 * 
 	 * @param naziv
 	 */
 	public void dodajKategorijo(String naziv) {
