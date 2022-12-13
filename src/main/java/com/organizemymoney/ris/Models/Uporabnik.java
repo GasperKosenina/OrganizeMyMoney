@@ -18,11 +18,7 @@ public class Uporabnik {
 	private String email;
 
 	@ElementCollection
-	@OneToMany
-	@JoinTable(
-	name = "uporabnik_strosek",
-	joinColumns = @JoinColumn(name = "uporabnik_id_uporabnika"),
-	inverseJoinColumns = @JoinColumn(name = "strosek_id_stroska"))
+	@OneToMany(mappedBy = "", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Strosek> uporabikoviStroski = new ArrayList<>();
 
 	public Long getId() {

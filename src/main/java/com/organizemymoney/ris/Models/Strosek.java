@@ -16,7 +16,7 @@ public class Strosek {
 	 * @param naziv
 	 *
 	 *
-	 * 
+	 *
 	 */
 	public void dodajKategorijo(String naziv) {
 		// TODO - implement Strosek.dodajKategorijo
