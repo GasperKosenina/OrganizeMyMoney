@@ -18,6 +18,8 @@ public interface UporabnikReposetory extends CrudRepository<Uporabnik, Long> {
 
     @Query("select u from Uporabnik u where u.bancni_racun.stanje > 1000 and size(u.uporabikoviStroski) <= 1")
     List<Uporabnik> vrniUporabnikePoracunu();
+    @Query("select u from Uporabnik u where u.bancni_racun = null and size(u.uporabikoviStroski) <= 1")
+    List<Uporabnik> vrniUporabnikePoracunu1();
 
 
 

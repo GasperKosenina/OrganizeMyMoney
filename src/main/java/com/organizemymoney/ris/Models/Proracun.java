@@ -2,8 +2,8 @@ package com.organizemymoney.ris.Models;
 
 public class Proracun {
 
-	private int id;
-	private double znesek;
+	private Long id;
+	private Double znesek;
 
 	/**
 	 * 

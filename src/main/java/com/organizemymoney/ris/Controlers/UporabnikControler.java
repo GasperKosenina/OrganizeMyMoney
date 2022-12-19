@@ -57,5 +57,10 @@ public class UporabnikControler {
         return UporabnikDao.vrniUporabnikePoracunu();
     }
 
+    @GetMapping("/getUprPoBan1")
+    public Iterable<Uporabnik> poBan1(){
+        return UporabnikDao.vrniUporabnikePoracunu1();
+    }
+
 
 }
