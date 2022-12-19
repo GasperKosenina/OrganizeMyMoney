@@ -7,11 +7,16 @@ public class Bancni_racun {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
-	private int id;
+	private Long id;
 	private int stanje;
 
 
-	public void setId(int id) {
+
+	@OneToOne(mappedBy = "bancni_racun")
+
+
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -19,7 +24,7 @@ public class Bancni_racun {
 		this.stanje = stanje;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 

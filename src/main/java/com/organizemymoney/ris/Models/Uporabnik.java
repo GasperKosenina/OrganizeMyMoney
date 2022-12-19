@@ -21,6 +21,18 @@ public class Uporabnik {
 	@OneToMany(mappedBy = "", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Strosek> uporabikoviStroski = new ArrayList<>();
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "bancni_racun_id", referencedColumnName = "id")
+	private Bancni_racun bancni_racun;
+
+	public void setBancni_racun(Bancni_racun bancni_racun) {
+		this.bancni_racun = bancni_racun;
+	}
+
+	public Bancni_racun getBancni_racun() {
+		return bancni_racun;
+	}
+
 	public Long getId() {
 		return id;
 	}
