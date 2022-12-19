@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface StrosekReposetory extends CrudRepository<Strosek, Long> {
 
-    @Query("select s from Strosek s where znesek > 10 and opomba = 'Trgovina' ")
+    @Query("select s from Strosek s where s.znesek > 10 and s.opomba = 'Trgovina' ")
     List<Strosek> vrniStroskePoZnesku();
 }
