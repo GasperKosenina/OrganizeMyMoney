@@ -44,6 +44,8 @@ public class UporabnikControler {
         return UporabnikDao.vrniUporabnikePoStroskih();
     }
 
+
+
     @GetMapping("/getUprPoStr1")
     public Iterable<Uporabnik> poStr1(){
         return UporabnikDao.vrniUporabnikePoStroskih1();
